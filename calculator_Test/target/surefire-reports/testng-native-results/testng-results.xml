@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" total="10" passed="10">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Command line suite" duration-ms="125" started-at="2016-09-01T07:00:00Z" finished-at="2016-09-01T07:00:00Z">
+    <groups>
+    </groups>
+    <test name="Command line test" duration-ms="125" started-at="2016-09-01T07:00:00Z" finished-at="2016-09-01T07:00:00Z">
+      <class name="com.iontrading.calculator.calculator.ClientInterfaceTest">
+        <test-method status="PASS" signature="testCalculateMul()[pri:0, instance:com.iontrading.calculator.calculator.ClientInterfaceTest@28de768]" name="testCalculateMul" duration-ms="0" started-at="2016-09-01T12:30:00Z" finished-at="2016-09-01T12:30:00Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testCalculateMul -->
+        <test-method status="PASS" signature="testCalculateAdd()[pri:0, instance:com.iontrading.calculator.calculator.ClientInterfaceTest@28de768]" name="testCalculateAdd" duration-ms="0" started-at="2016-09-01T12:30:00Z" finished-at="2016-09-01T12:30:00Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testCalculateAdd -->
+        <test-method status="PASS" signature="testCalculateDivideByZero()[pri:0, instance:com.iontrading.calculator.calculator.ClientInterfaceTest@28de768]" name="testCalculateDivideByZero" duration-ms="0" started-at="2016-09-01T12:30:00Z" finished-at="2016-09-01T12:30:00Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testCalculateDivideByZero -->
+        <test-method status="PASS" signature="setup()[pri:0, instance:com.iontrading.calculator.calculator.ClientInterfaceTest@28de768]" name="setup" duration-ms="0" started-at="2016-09-01T12:30:00Z" finished-at="2016-09-01T12:30:00Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method status="PASS" signature="testCalculateDivide()[pri:0, instance:com.iontrading.calculator.calculator.ClientInterfaceTest@28de768]" name="testCalculateDivide" duration-ms="0" started-at="2016-09-01T12:30:00Z" finished-at="2016-09-01T12:30:00Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testCalculateDivide -->
+        <test-method status="PASS" signature="testCalculateSub()[pri:0, instance:com.iontrading.calculator.calculator.ClientInterfaceTest@28de768]" name="testCalculateSub" duration-ms="0" started-at="2016-09-01T12:30:00Z" finished-at="2016-09-01T12:30:00Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testCalculateSub -->
+      </class> <!-- com.iontrading.calculator.calculator.ClientInterfaceTest -->
+      <class name="com.iontrading.calculator.calculator.CalculatorTest">
+        <test-method status="PASS" signature="setup()[pri:0, instance:com.iontrading.calculator.calculator.CalculatorTest@6665696b]" name="setup" is-config="true" duration-ms="125" started-at="2016-09-01T12:30:00Z" finished-at="2016-09-01T12:30:00Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method status="PASS" signature="testAdd()[pri:0, instance:com.iontrading.calculator.calculator.CalculatorTest@6665696b]" name="testAdd" duration-ms="0" started-at="2016-09-01T12:30:00Z" finished-at="2016-09-01T12:30:00Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testAdd -->
+        <test-method status="PASS" signature="setup()[pri:0, instance:com.iontrading.calculator.calculator.CalculatorTest@6665696b]" name="setup" is-config="true" duration-ms="0" started-at="2016-09-01T12:30:00Z" finished-at="2016-09-01T12:30:00Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method status="PASS" signature="setup()[pri:0, instance:com.iontrading.calculator.calculator.CalculatorTest@6665696b]" name="setup" is-config="true" duration-ms="0" started-at="2016-09-01T12:30:00Z" finished-at="2016-09-01T12:30:00Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method status="PASS" signature="setup()[pri:0, instance:com.iontrading.calculator.calculator.CalculatorTest@6665696b]" name="setup" is-config="true" duration-ms="0" started-at="2016-09-01T12:30:00Z" finished-at="2016-09-01T12:30:00Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method status="PASS" signature="testDivideFirstBySecond()[pri:0, instance:com.iontrading.calculator.calculator.CalculatorTest@6665696b]" name="testDivideFirstBySecond" duration-ms="0" started-at="2016-09-01T12:30:00Z" finished-at="2016-09-01T12:30:00Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testDivideFirstBySecond -->
+        <test-method status="PASS" signature="testMultiply()[pri:0, instance:com.iontrading.calculator.calculator.CalculatorTest@6665696b]" name="testMultiply" duration-ms="0" started-at="2016-09-01T12:30:00Z" finished-at="2016-09-01T12:30:00Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testMultiply -->
+        <test-method status="PASS" signature="testSubtractSecondFromFirst()[pri:0, instance:com.iontrading.calculator.calculator.CalculatorTest@6665696b]" name="testSubtractSecondFromFirst" duration-ms="0" started-at="2016-09-01T12:30:00Z" finished-at="2016-09-01T12:30:00Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testSubtractSecondFromFirst -->
+      </class> <!-- com.iontrading.calculator.calculator.CalculatorTest -->
+    </test> <!-- Command line test -->
+  </suite> <!-- Command line suite -->
+</testng-results>
