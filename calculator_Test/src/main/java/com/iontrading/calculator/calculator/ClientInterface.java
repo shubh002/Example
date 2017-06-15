@@ -1,10 +1,9 @@
 package com.iontrading.calculator.calculator;
 
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class ClientInterface {
-   
+
     private ICalculator calculator;
 
     public ClientInterface(ICalculator calculator) {
@@ -12,36 +11,19 @@ public class ClientInterface {
     }
 
     Scanner sc = new Scanner(System.in);
-
-    
-
-    public Result calculate(int choice,MyNums myNums) {
-        
-        Result result = new Result();
+    public double calculate(int choice, int num1, int num2) {
         switch (choice) {
             case 1:
-                result.setValue(calculator.add(myNums.getD1(), myNums.getD2()));
-                result.setResult(true);
-                break;
+                return calculator.add(num1, num2);
             case 2:
-                result.setValue(calculator.subtractSecondFromFirst(myNums.getD1(), myNums.getD2()));
-                result.setResult(true);
-                break;
-            case 3:
-                result.setValue(calculator.multiply(myNums.getD1(), myNums.getD2()));
-                result.setResult(true);
-                break;
-            case 4:
-                result.setValue(calculator.divideFirstBySecond(myNums.getD1(), myNums.getD2()));
-                result.setResult(true);
-                break;
-            default:
-                result.setResult(false);
-             
+                return calculator.subtractSecondFromFirst(num1, num2);
+           
         }
-        
-        return result;
+        return 0;
+    }
 
+    public double findMax(double arr[]) {
+        return calculator.FindMax(arr);
     }
 
 }

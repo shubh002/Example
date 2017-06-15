@@ -1,41 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" total="4" passed="4">
+<testng-results skipped="0" failed="0" total="3" passed="3">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="56" started-at="2017-06-14T06:06:35Z" finished-at="2017-06-14T06:06:35Z">
+  <suite name="Default suite" duration-ms="58" started-at="2017-06-15T09:48:57Z" finished-at="2017-06-15T09:48:57Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="56" started-at="2017-06-14T06:06:35Z" finished-at="2017-06-14T06:06:35Z">
+    <test name="Default test" duration-ms="58" started-at="2017-06-15T09:48:57Z" finished-at="2017-06-15T09:48:57Z">
       <class name="com.iontrading.calculator.calculator.CalculatorTest">
-        <test-method status="PASS" signature="setup()[pri:0, instance:com.iontrading.calculator.calculator.CalculatorTest@7302d823]" name="setup" is-config="true" duration-ms="10" started-at="2017-06-14T11:36:35Z" finished-at="2017-06-14T11:36:35Z">
+        <test-method status="PASS" signature="setup()[pri:0, instance:com.iontrading.calculator.calculator.CalculatorTest@7171179a]" test-instance-name="" name="setup" is-config="true" duration-ms="14" started-at="2017-06-15T15:18:57Z" finished-at="2017-06-15T15:18:57Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method status="PASS" signature="testAdd()[pri:0, instance:com.iontrading.calculator.calculator.CalculatorTest@7302d823]" name="testAdd" duration-ms="10" started-at="2017-06-14T11:36:35Z" finished-at="2017-06-14T11:36:35Z">
+        <test-method status="PASS" signature="testAdd()[pri:0, instance:com.iontrading.calculator.calculator.CalculatorTest@7171179a]" test-instance-name="" name="testAdd" duration-ms="9" started-at="2017-06-15T15:18:57Z" finished-at="2017-06-15T15:18:57Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testAdd -->
-        <test-method status="PASS" signature="testDivideFirstBySecond()[pri:0, instance:com.iontrading.calculator.calculator.CalculatorTest@7302d823]" name="testDivideFirstBySecond" duration-ms="0" started-at="2017-06-14T11:36:35Z" finished-at="2017-06-14T11:36:35Z">
+        <test-method status="PASS" signature="testFindMax()[pri:0, instance:com.iontrading.calculator.calculator.CalculatorTest@7171179a]" test-instance-name="" name="testFindMax" duration-ms="4" started-at="2017-06-15T15:18:57Z" finished-at="2017-06-15T15:18:57Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- testDivideFirstBySecond -->
-        <test-method status="PASS" signature="testMultiply()[pri:0, instance:com.iontrading.calculator.calculator.CalculatorTest@7302d823]" name="testMultiply" duration-ms="3" started-at="2017-06-14T11:36:35Z" finished-at="2017-06-14T11:36:35Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- testMultiply -->
-        <test-method status="PASS" signature="setup()[pri:0, instance:com.iontrading.calculator.calculator.CalculatorTest@7302d823]" name="setup" is-config="true" duration-ms="0" started-at="2017-06-14T11:36:35Z" finished-at="2017-06-14T11:36:35Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setup -->
-        <test-method status="PASS" signature="setup()[pri:0, instance:com.iontrading.calculator.calculator.CalculatorTest@7302d823]" name="setup" is-config="true" duration-ms="0" started-at="2017-06-14T11:36:35Z" finished-at="2017-06-14T11:36:35Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setup -->
-        <test-method status="PASS" signature="setup()[pri:0, instance:com.iontrading.calculator.calculator.CalculatorTest@7302d823]" name="setup" is-config="true" duration-ms="1" started-at="2017-06-14T11:36:35Z" finished-at="2017-06-14T11:36:35Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setup -->
-        <test-method status="PASS" signature="testSubtractSecondFromFirst()[pri:0, instance:com.iontrading.calculator.calculator.CalculatorTest@7302d823]" name="testSubtractSecondFromFirst" duration-ms="3" started-at="2017-06-14T11:36:35Z" finished-at="2017-06-14T11:36:35Z">
+        </test-method> <!-- testFindMax -->
+        <test-method status="PASS" signature="testSubtractSecondFromFirst()[pri:0, instance:com.iontrading.calculator.calculator.CalculatorTest@7171179a]" test-instance-name="" name="testSubtractSecondFromFirst" duration-ms="2" started-at="2017-06-15T15:18:57Z" finished-at="2017-06-15T15:18:57Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testSubtractSecondFromFirst -->

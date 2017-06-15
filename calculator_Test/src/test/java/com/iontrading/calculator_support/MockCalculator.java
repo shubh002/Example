@@ -1,48 +1,33 @@
 package com.iontrading.calculator_support;
 
 import com.iontrading.calculator.calculator.ICalculator;
-import com.iontrading.calculator.calculator.Result;
 
-public class MockCalculator implements ICalculator{
+public class MockCalculator implements ICalculator {
 
-    private Result result = new Result();
-    
+    private double value;
+
     public double add(double d1, double d2) {
-        return result.getValue();
+        return value;
     }
 
-    public void setAdd(double d)
-    {
-        result.setValue(d);;
+    public void setAdd(double d) {
+        this.value = d;
     }
-    
+
     public double subtractSecondFromFirst(double d1, double d2) {
-        return result.getValue();
-    }
-    
-    public void setSubtract(double d)
-    {
-        result.setValue(d);
+        return value;
     }
 
-    public double multiply(double d1, double d2) {
-        return result.getValue();
+    public void setSubtract(double d) {
+        this.value = d;
     }
 
-    public void setMultiply(double d)
-    {
-        result.setValue(d);;
-    }
-    
-    public double divideFirstBySecond(double d1, double d2) {
-        return result.getValue();
+    public double FindMax(double[] arr) {
+        return value;
     }
 
-    public void setDivide(double d)
-    {
-        result.setValue(d);
+    public void setfindMax(double max) {
+        this.value = max;
     }
-   
 
 }
-
