@@ -12,6 +12,9 @@ import org.apache.commons.lang.RandomStringUtils;
 
 
 
+
+
+
 import junit.framework.Assert;
 
 public class BeanTester {
@@ -136,11 +139,12 @@ public class BeanTester {
 			Assert.assertEquals(DUMMY_BYTE, getterMethod.invoke(instance, null));
 		}
 		else if(fieldType instanceof Class && ((Class<?>)fieldType).isEnum())
-		{
-			Class c= fieldName.getClass();		
-			System.out.println(c.getEnumConstants());
-			
-			
+		{	
+			List enumConstants = Arrays.asList(((Class<?>) fieldType).getEnumConstants());
+			setterMethod = beanClass.getDeclaredMethod(setterMethodName, (Class)fieldType);
+			setterMethod.invoke(instance, enumConstants.get(0));
+			getterMethod = beanClass.getDeclaredMethod(getterMethodName, null);
+			Assert.assertEquals(enumConstants.get(0), getterMethod.invoke(instance, null));
 			
 		}
 		
