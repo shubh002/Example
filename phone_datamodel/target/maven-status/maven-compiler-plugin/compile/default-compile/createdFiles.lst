@@ -1,0 +1,10 @@
+com\phone\phone_datamodel\enums\ModelSamsung.class
+com\phone\phone_datamodel\enums\ModelHtc.class
+com\phone\phone_datamodel\entities\Features.class
+com\phone\phone_datamodel\enums\BrandType.class
+com\phone\phone_datamodel\enums\OSType.class
+com\phone\phone_datamodel\enums\ModelOp.class
+com\phone\phone_datamodel\enums\ModelApple.class
+com\phone\phone_datamodel\entities\Phone.class
+com\phone\phone_datamodel\enums\ModelLg.class
+com\phone\phone_datamodel\enums\ModelLenovo.class
