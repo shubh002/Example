@@ -1,6 +1,12 @@
 package com.phone.phone_datamodel.entities;
 
 import com.phone.phone_datamodel.enums.BrandType;
+import com.phone.phone_datamodel.enums.ModelApple;
+import com.phone.phone_datamodel.enums.ModelHtc;
+import com.phone.phone_datamodel.enums.ModelLenovo;
+import com.phone.phone_datamodel.enums.ModelLg;
+import com.phone.phone_datamodel.enums.ModelOneplus;
+import com.phone.phone_datamodel.enums.ModelSamsung;
 
 public class Features implements IFeatures{
 
@@ -8,15 +14,23 @@ public class Features implements IFeatures{
 	private boolean fourG;
 	private int internalMemory;
 	private BrandType brand;
+	private ModelSamsung modelSamsung;
+	private ModelApple modelApple;
+	private ModelHtc modelHtc;
+	private ModelLg modelLg;
+	private ModelLenovo modelLenovo;
+	private ModelOneplus modelOneplus;
+	private int battery;
+	private int ram;
+	private String cpu;
+	private String gpu;
 	/*
 	private float screenSize;
-	private int battery;
-	private String cpu;
+	
 	private float cpuSpeed;
-	private String gpu;
+	
 	private float gpuSpeed;
-	private int ram;
-	private boolean isExpandable;
+	
 	*/
 	public String getOsVersion() {
 		return osVersion;
@@ -43,18 +57,53 @@ public class Features implements IFeatures{
 	public void setBrand(BrandType brand) {
 		this.brand = brand;
 	}
-	/*
-	public float getScreenSize() {
-		return screenSize;
-	}
-	public void setScreenSize(int screenSize) {
-		this.screenSize = screenSize;
-	}
 	public int getBattery() {
 		return battery;
 	}
 	public void setBattery(int battery) {
 		this.battery = battery;
+	}
+	public int getRam() {
+		return ram;
+	}
+	public void setRam(int ram) {
+		this.ram = ram;
+	}
+	public ModelSamsung getModelSamsung() {
+		return modelSamsung;
+	}
+	public void setModelSamsung(ModelSamsung modelSamsung) {
+		this.modelSamsung = modelSamsung;
+	}
+	public ModelApple getModelApple() {
+		return modelApple;
+	}
+	public void setModelApple(ModelApple modelApple) {
+		this.modelApple = modelApple;
+	}
+	public ModelHtc getModelHtc() {
+		return modelHtc;
+	}
+	public void setModelHtc(ModelHtc modelHtc) {
+		this.modelHtc = modelHtc;
+	}
+	public ModelLg getModelLg() {
+		return modelLg;
+	}
+	public void setModelLg(ModelLg modelLg) {
+		this.modelLg = modelLg;
+	}
+	public ModelLenovo getModelLenovo() {
+		return modelLenovo;
+	}
+	public void setModelLenovo(ModelLenovo modelLenovo) {
+		this.modelLenovo = modelLenovo;
+	}
+	public ModelOneplus getModelOneplus() {
+		return modelOneplus;
+	}
+	public void setModelOneplus(ModelOneplus modelOneplus) {
+		this.modelOneplus = modelOneplus;
 	}
 	public String getCpu() {
 		return cpu;
@@ -68,17 +117,14 @@ public class Features implements IFeatures{
 	public void setGpu(String gpu) {
 		this.gpu = gpu;
 	}
-	public int getRam() {
-		return ram;
+	
+	
+	/*
+	public float getScreenSize() {
+		return screenSize;
 	}
-	public void setRam(int ram) {
-		this.ram = ram;
-	}
-	public boolean getIsExpandable() {
-		return isExpandable;
-	}
-	public void setIsExpandable(boolean isExpandable) {
-		this.isExpandable = isExpandable;
+	public void setScreenSize(int screenSize) {
+		this.screenSize = screenSize;
 	}
 	
 	public float getCpuSpeed() {
@@ -93,7 +139,6 @@ public class Features implements IFeatures{
 	public void setGpuSpeed(float gpuSpeed) {
 		this.gpuSpeed = gpuSpeed;
 	}*/
-	
 	
 	
 }

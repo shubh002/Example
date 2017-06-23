@@ -2,12 +2,13 @@ package com.phone.phone_datamodel.enums;
 
 public enum BrandType {
 	
-		SAMSUNG(1,"Samsung"),
+		NONE(1,"None"),
 		APPLE(2,"Apple"),
-		HTC(3,"HTC"),
-		LG(4,"LG"),
-		LENOVO(5,"Lenovo"),
-		OP(6,"Oneplus");
+		SAMSUNG(3,"Samsung"),
+		HTC(4,"HTC"),
+		LG(5,"LG"),
+		LENOVO(6,"Lenovo"),
+		ONEPLUS(7,"Oneplus");
 	    private int intValue;
 		private String displayString;
 		

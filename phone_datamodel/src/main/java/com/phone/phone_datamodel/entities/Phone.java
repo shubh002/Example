@@ -35,5 +35,8 @@ public class Phone implements IPhone {
 		this.features = features;
 	}
 
-	
+	@Override
+	public String toString() {
+		return "id: "+getId()+"OStype: "+getOperatingSystem().getDisplayString();
+	}
 }

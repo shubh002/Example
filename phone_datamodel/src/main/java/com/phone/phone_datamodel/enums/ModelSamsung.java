@@ -2,12 +2,12 @@ package com.phone.phone_datamodel.enums;
 
 public enum ModelSamsung {
 	
-		GALAXYS8(1,"Samsung Galaxy S8"),
-		GALAXYJ5(2,"Samsung Galaxy J5"),
-		A7(3,"Samsung A7"),
-		A5(4,"Samsung A5"),
-		GALAXYS7(5,"Samsung Galaxy S7"),
-		NOTE5(6,"Samsung NOTE 5");
+		NONE(1,"None"),
+		GALAXYS8(2,"Samsung Galaxy S8"),
+		GALAXYJ5(3,"Samsung Galaxy J5"),
+		A7(4,"Samsung A7"),
+		A5(5,"Samsung A5"),
+		GALAXYS7(6,"Samsung Galaxy S7");	
 		private int intValue;
 		private String displayString;
 

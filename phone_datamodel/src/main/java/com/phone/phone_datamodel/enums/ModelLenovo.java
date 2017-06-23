@@ -2,10 +2,11 @@ package com.phone.phone_datamodel.enums;
 
 public enum ModelLenovo {
 
-	K6POWER(1,"Lenovo K6 Power"),
-	Z2PLUS(2,"Lenovo Z2 Plus"),
-	K6NOTE(3,"Lenovo K6 Note"),
-	A6600PLUS(4,"Lenovo A6600 Plus");
+	NONE(1,"None"),
+	K6POWER(2,"Lenovo K6 Power"),
+	Z2PLUS(3,"Lenovo Z2 Plus"),
+	K6NOTE(4,"Lenovo K6 Note"),
+	A6600PLUS(5,"Lenovo A6600 Plus");
 	private int intValue;
 	private String displayString;
 	private ModelLenovo(int intValue,String displayString)
