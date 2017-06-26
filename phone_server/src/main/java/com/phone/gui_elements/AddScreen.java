@@ -33,9 +33,8 @@ import com.phone.phone_datamodel.enums.ModelLg;
 import com.phone.phone_datamodel.enums.ModelOneplus;
 import com.phone.phone_datamodel.enums.ModelSamsung;
 import com.phone.phone_datamodel.enums.OSType;
-import javax.swing.JRadioButtonMenuItem;
 
-public class AddScreen implements ActionListener{
+public class AddScreen implements ActionListener,KeyListener{
 
 	private JFrame frmPhoneTradingSystem;
 	private JComboBox comboBoxOSType;
@@ -66,6 +65,26 @@ public class AddScreen implements ActionListener{
 	private JTextField textFieldGpu;
 	private JSeparator separator_1;
 	private JButton btnExistingPhones;
+	private JButton btnClear;
+	
+	
+	public void reset()
+	{
+		comboBoxOSType.removeAllItems();
+		comboBoxBrandType.removeAllItems();
+		comboBoxModel.removeAllItems();
+		comboBoxOSType.setModel(new DefaultComboBoxModel(OSType.values()));
+		comboBoxBrandType.setModel(defaultComboBoxBrand);
+		comboBoxModel.setModel(defaultComboBoxModel);
+		radioButton.clearSelection();
+		textFieldMemory.setText(null);
+		textFieldBattery.setText(null);
+		textFieldRam.setText(null);
+		textFieldCpu.setText(null);
+		textFieldGpu.setText(null);
+	}
+	
+	
 	
 	
 	public static void main(String[] args) {
@@ -132,15 +151,10 @@ public class AddScreen implements ActionListener{
 		comboBoxBrandType.addActionListener(this);
 		
 		
-		
 		lblModel = new JLabel("Model");
 		lblModel.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		lblModel.setBounds(29, 148, 58, 29);
 		frmPhoneTradingSystem.getContentPane().add(lblModel);
-		
-		
-		
-		
 		
 		comboBoxModel = new JComboBox();
 		comboBoxModel.setBackground(Color.WHITE);
@@ -150,9 +164,6 @@ public class AddScreen implements ActionListener{
 		comboBoxModel.setModel(defaultComboBoxModel);
 		comboBoxModel.setBounds(140, 154, 97, 20);
 		frmPhoneTradingSystem.getContentPane().add(comboBoxModel);
-		
-		
-		
 
 		lblFourG = new JLabel("4G Enabled");
 		lblFourG.setFont(new Font("Tahoma", Font.PLAIN, 14));
@@ -181,30 +192,8 @@ public class AddScreen implements ActionListener{
 		textFieldMemory = new JTextField();
 		textFieldMemory.setBackground(Color.WHITE);
 		textFieldMemory.setComponentOrientation(ComponentOrientation.LEFT_TO_RIGHT);
-		textFieldMemory.addKeyListener(new KeyListener() {
-			
-			public void keyTyped(KeyEvent e) {
-				
-				try{
-					Integer.parseInt(Character.toString(e.getKeyChar()));
-					
-				}catch(Exception exc)
-				{
-					e.consume();	
-				}
-			}
-			
-			public void keyReleased(KeyEvent e) {
-			
-			}
-			
-			public void keyPressed(KeyEvent e) {
-				
-			}
-		});
+		textFieldMemory.addKeyListener(this);
 		
-		
-
 		
 		textFieldMemory.setFont(new Font("Monospaced", Font.PLAIN, 12));
 		textFieldMemory.setBounds(140, 327, 51, 22);
@@ -220,7 +209,7 @@ public class AddScreen implements ActionListener{
 		
 		
 		btnSave.setFont(new Font("Tahoma", Font.PLAIN, 13));
-		btnSave.setBounds(382, 482, 89, 23);
+		btnSave.setBounds(563, 483, 89, 23);
 		frmPhoneTradingSystem.getContentPane().add(btnSave);
 		
 		label = new JLabel("");
@@ -238,27 +227,7 @@ public class AddScreen implements ActionListener{
 		textFieldBattery.setComponentOrientation(ComponentOrientation.LEFT_TO_RIGHT);
 		textFieldBattery.setBounds(140, 387, 70, 22);
 		frmPhoneTradingSystem.getContentPane().add(textFieldBattery);
-		textFieldBattery.addKeyListener(new KeyListener() {
-			
-			public void keyTyped(KeyEvent e) {
-				
-				try{
-					Integer.parseInt(Character.toString(e.getKeyChar()));
-					
-				}catch(Exception exc)
-				{
-					e.consume();	
-				}
-			}
-			
-			public void keyReleased(KeyEvent e) {
-			
-			}
-			
-			public void keyPressed(KeyEvent e) {
-				
-			}
-		});
+		textFieldBattery.addKeyListener(this);
 		
 		
 		
@@ -273,27 +242,7 @@ public class AddScreen implements ActionListener{
 		textFieldRam.setComponentOrientation(ComponentOrientation.LEFT_TO_RIGHT);
 		textFieldRam.setBounds(600, 266, 28, 22);
 		frmPhoneTradingSystem.getContentPane().add(textFieldRam);
-		textFieldRam.addKeyListener(new KeyListener() {
-			
-			public void keyTyped(KeyEvent e) {
-				
-				try{
-					Integer.parseInt(Character.toString(e.getKeyChar()));
-					
-				}catch(Exception exc)
-				{
-					e.consume();	
-				}
-			}
-			
-			public void keyReleased(KeyEvent e) {
-			
-			}
-			
-			public void keyPressed(KeyEvent e) {
-				
-			}
-		});
+		textFieldRam.addKeyListener(this);
 		
 		
 		
@@ -345,6 +294,12 @@ public class AddScreen implements ActionListener{
 		btnExistingPhones.setBounds(517, 87, 131, 29);
 		frmPhoneTradingSystem.getContentPane().add(btnExistingPhones);
 		
+		btnClear = new JButton("Clear");
+		btnClear.addActionListener(this);
+		btnClear.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		btnClear.setBounds(193, 483, 89, 23);
+		frmPhoneTradingSystem.getContentPane().add(btnClear);
+		
 		
 		
 		frmPhoneTradingSystem.setTitle("PHONE TRADING SYSTEM");
@@ -365,10 +320,11 @@ public class AddScreen implements ActionListener{
 					defaultComboBoxBrand.addElement(BrandType.values()[i]);
 				}
 			}
-			else
+			else if(comboBoxOSType.getSelectedItem()==OSType.IOS)
 			{
 				defaultComboBoxBrand.addElement(BrandType.values()[0]);
 				defaultComboBoxBrand.addElement(BrandType.values()[1]);
+				
 			}
 		}
 		
@@ -425,10 +381,6 @@ public class AddScreen implements ActionListener{
 			
 		}
 		
-		
-		
-		
-	
 		boolean is4G = false;
 		int internalMemory = 0;
 		int ram=0;
@@ -436,14 +388,6 @@ public class AddScreen implements ActionListener{
 		String cpu=null;
 		String gpu=null;
 		
-		
-		if(e.getSource()==rdbtnYes)
-		{
-			is4G = true;
-		}else if(e.getSource()==rdbtnNo)
-		{
-			is4G = false;
-		}
 		if(e.getSource()==btnSave)
 		{
 			Phone phone = new Phone();
@@ -477,6 +421,12 @@ public class AddScreen implements ActionListener{
 				feature.setModelOneplus((ModelOneplus) comboBoxModel.getSelectedItem());
 			}	
 			
+			if(rdbtnYes.isSelected())
+			{
+				is4G = true;
+			}else{
+				is4G = false;
+			}
 			
 			if(!textFieldMemory.getText().equals(""))
 			{
@@ -507,6 +457,7 @@ public class AddScreen implements ActionListener{
 			phone.setFeatures(feature);
 			PhoneData.addToList(phone);
 			JOptionPane.showMessageDialog(null, "All Fields Saved Successfully "+PhoneData.readFromList().get(0));
+			reset();
 		}
 		
 		if(e.getSource()==btnExistingPhones)
@@ -515,17 +466,34 @@ public class AddScreen implements ActionListener{
 			ViewScreen viewScreen = new ViewScreen(); 
 			viewScreen.setVisible(true);
 			
-			
-			
-			
-			
-			
-			
+		}
+		if(e.getSource()==btnClear)
+		{
+			reset();
 		}
 		
+	}
+
+	public void keyTyped(KeyEvent e) {
 		
+		if(e.getSource()==textFieldRam||e.getSource()==textFieldMemory||e.getSource()==textFieldBattery){
+			try{
+				Integer.parseInt(Character.toString(e.getKeyChar()));
+				
+			}catch(Exception exc)
+			{
+				e.consume();	
+			}
+		}
+	}
+
+	public void keyPressed(KeyEvent e) {
+		// TODO Auto-generated method stub
 		
-		
+	}
+
+	public void keyReleased(KeyEvent e) {
+		// TODO Auto-generated method stub
 		
 	}
 }

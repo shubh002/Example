@@ -9,14 +9,17 @@ public class PhoneData{
 
 	
 	private static List<Phone> data = new ArrayList<Phone>();
-	
+	private static int count;
 	
 	public static void  addToList(Phone phone){
+		phone.setId(count);
 		data.add(phone);
+		count++;
 	}
 	
 	public static void  removeFromList(Phone phone){
 		data.remove(phone);
+		count--;
 	}
 
 	public static void  updateList(Phone existingPhone,Phone newPhone){
@@ -31,12 +34,5 @@ public class PhoneData{
 		return data;
 	}
 	
-	public void clearData()
-	{
-		data.removeAll(data);
-	}
-	
-	
-	
-	
+		
 }

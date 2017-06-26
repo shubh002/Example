@@ -1,5 +1,6 @@
 package com.phone.mock;
 
+import java.beans.PropertyDescriptor;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.lang.reflect.Type;
@@ -9,6 +10,7 @@ import java.util.List;
 import java.util.Random;
 
 import org.apache.commons.lang.RandomStringUtils;
+
 
 
 
@@ -57,6 +59,8 @@ public class BeanTester {
 		String setterMethodName = null;
 		
 		Object instance = beanClass.newInstance();
+		
+		
  		
 		if(fieldType.equals(boolean.class))
 		{
