@@ -57,7 +57,8 @@ public class ViewScreen extends JFrame {
 		table = new JTable(phoneTableModel.getTableData(),phoneTableModel.getColumnNames());
 		table.setFillsViewportHeight(true);
 		table.setCellSelectionEnabled(true);
-		table.setRowSelectionAllowed(false);
+		table.setRowSelectionAllowed(true);
+		table.setColumnSelectionAllowed(false);
 		scrollPane.setViewportView(table);
 		table.getColumnModel().getColumn(0).setPreferredWidth(1);
 		table.getColumnModel().getColumn(1).setPreferredWidth(30);

@@ -68,7 +68,7 @@ public class PhoneTableModel extends AbstractTableModel{
 					case ONEPLUS:getTableData()[i][j]=data.get(i).getFeatures().getModelOneplus();
 								break;
 					}	
-						
+					break;	
 				case 4:getTableData()[i][j]=data.get(i).getFeatures().isFourG();
 					break;
 				case 5:getTableData()[i][j]=data.get(i).getFeatures().getInternalMemory();

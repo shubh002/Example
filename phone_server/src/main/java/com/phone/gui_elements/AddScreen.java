@@ -424,7 +424,7 @@ public class AddScreen implements ActionListener,KeyListener{
 			if(rdbtnYes.isSelected())
 			{
 				is4G = true;
-			}else{
+			}else if(rdbtnNo.isSelected()){
 				is4G = false;
 			}
 			
