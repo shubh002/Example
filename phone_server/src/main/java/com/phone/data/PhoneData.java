@@ -19,7 +19,6 @@ public class PhoneData{
 	
 	public static void  removeFromList(Phone phone){
 		data.remove(phone);
-		count--;
 	}
 
 	public static void  updateList(Phone existingPhone,Phone newPhone){
@@ -32,6 +31,20 @@ public class PhoneData{
 
 	public static List<Phone> readFromList(){
 		return data;
+	}
+	
+	public static Phone findById(int id)
+	{
+		Phone phoneFound = null;
+		for(Phone phone:data)
+		{
+			if(phone.getId()==id)
+			{
+				phoneFound = phone;
+				break;
+			}
+		}
+		return phoneFound;
 	}
 	
 		

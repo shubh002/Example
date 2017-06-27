@@ -456,7 +456,7 @@ public class AddScreen implements ActionListener,KeyListener{
 			feature.setGpu(gpu);
 			phone.setFeatures(feature);
 			PhoneData.addToList(phone);
-			JOptionPane.showMessageDialog(null, "All Fields Saved Successfully "+PhoneData.readFromList().get(0));
+			JOptionPane.showMessageDialog(null, "All Fields Saved Successfully");
 			reset();
 		}
 		
