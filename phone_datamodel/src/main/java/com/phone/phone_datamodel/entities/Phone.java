@@ -39,4 +39,21 @@ public class Phone implements IPhone {
 	public String toString() {
 		return "id: "+getId()+"OStype: "+getOperatingSystem().getDisplayString();
 	}
+
+	@Override
+	public boolean equals(Object obj) {
+		
+		Phone phoneToCompare = (Phone) obj;
+		if(phoneToCompare.getId()==this.getId())
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
+	
+	
+	
 }

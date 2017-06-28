@@ -48,9 +48,9 @@ public class PhoneTableModel extends AbstractTableModel{
 				switch (j) {
 				case 0:getTableData()[i][j]=data.get(i).getId();
 					break;
-				case 1:getTableData()[i][j]=data.get(i).getOperatingSystem().getDisplayString();
+				case 1:getTableData()[i][j]=data.get(i).getOperatingSystem();
 					break;
-				case 2:getTableData()[i][j]=data.get(i).getFeatures().getBrand().getDisplayString();
+				case 2:getTableData()[i][j]=data.get(i).getFeatures().getBrand();
 					break;
 				case 3:
 					BrandType brandType = data.get(i).getFeatures().getBrand();
@@ -81,7 +81,7 @@ public class PhoneTableModel extends AbstractTableModel{
 					break;
 				case 9:getTableData()[i][j]=data.get(i).getFeatures().getGpu();
 					break;
-						default:
+				default:
 					break;
 				}
 			}

@@ -1,6 +1,5 @@
 package com.phone.gui_elements;
 
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -8,45 +7,64 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import java.awt.Color;
-
-import javax.swing.JLabel;
-
 import java.awt.Font;
 
-import javax.swing.ButtonGroup;
-import javax.swing.JComboBox;
-import javax.swing.JRadioButton;
-import javax.swing.JTextField;
+import javax.swing.*;
 
-import java.awt.Window.Type;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 import javax.swing.JButton;
+
+import com.phone.data.PhoneData;
+import com.phone.phone_datamodel.entities.Features;
+import com.phone.phone_datamodel.entities.Phone;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+
+import javax.swing.DefaultComboBoxModel;
+
+import com.phone.phone_datamodel.enums.ModelApple;
+import com.phone.phone_datamodel.enums.ModelHtc;
+import com.phone.phone_datamodel.enums.ModelLenovo;
+import com.phone.phone_datamodel.enums.ModelLg;
+import com.phone.phone_datamodel.enums.ModelOneplus;
+import com.phone.phone_datamodel.enums.ModelSamsung;
+import com.phone.phone_datamodel.enums.OSType;
+import com.phone.phone_datamodel.enums.BrandType;
 
 public class UpdateScreen extends JFrame implements KeyListener, ActionListener {
 
 	private JPanel contentPane;
-	private JTextField textFieldMemory;
-	private JTextField textFieldBattery;
-	private JTextField textFieldRam;
-	private JTextField textFieldCpu;
+	private ButtonGroup radioButton;
+	AddScreen addScreen = new AddScreen();
+	private Phone phone;
+	private JButton btnUpdate;
+	private JLabel lblOsType;
+	private JComboBox comboBoxOSType;
+	private JLabel lblBrand;
+	private JLabel lblModel;
+	private JComboBox comboBoxBrandType;
+	private JComboBox comboBoxModelType;
+	private JLabel lbl4g;
+	private JRadioButton radioButtonYes;
+	private JRadioButton radioButtonNo;
 	private JTextField textFieldGpu;
-	private JLabel lbl4gEnabled;
-	private JRadioButton rdbtnYes;
-	private JRadioButton rdbtnNo;
-	private ButtonGroup radioButton = new ButtonGroup();
-	private JLabel lblMemory;
-	private JLabel lblGb;
-	private JLabel lblBattery;
-	private JLabel lblMah;
+	private JLabel lblGpu;
+	private JTextField textFieldCpu;
+	private JLabel lblCpu;
+	private JTextField textFieldRam;
 	private JLabel lblRam;
 	private JLabel lblGb_1;
-	private JLabel lblCpu;
-	private JLabel lblGpu;
-	private JButton btnUpdate;
+	private JLabel lblMah;
+	private JLabel lblBattery;
+	private JTextField textFieldBattery;
+	private JLabel lblGb;
+	private JTextField textFieldMemory;
+	private JLabel lblMemory;
+	private DefaultComboBoxModel defaultComboBoxBrand = new DefaultComboBoxModel();
+	private DefaultComboBoxModel defaultComboBoxModel= new DefaultComboBoxModel();
 	
 	/**
 	 * Launch the application.
@@ -55,7 +73,7 @@ public class UpdateScreen extends JFrame implements KeyListener, ActionListener 
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					UpdateScreen frame = new UpdateScreen();
+					UpdateScreen frame = new UpdateScreen(null);
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -67,121 +85,225 @@ public class UpdateScreen extends JFrame implements KeyListener, ActionListener 
 	/**
 	 * Create the frame.
 	 */
-	public UpdateScreen() {
+	public UpdateScreen(Phone phone) {
+		this.phone = phone;
 		setType(Type.UTILITY);
-		setTitle("UPDATE INFORMATION");
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 771, 489);
+		setTitle("EDIT INFORMATION");
+		setBounds(100, 100, 901, 617);
 		contentPane = new JPanel();
 		contentPane.setBackground(Color.WHITE);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		lbl4gEnabled = new JLabel("4G Enabled");
-		lbl4gEnabled.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lbl4gEnabled.setBounds(33, 40, 79, 24);
-		contentPane.add(lbl4gEnabled);
+		btnUpdate = new JButton("UPDATE");
+		btnUpdate.addActionListener(this);
+		btnUpdate.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		btnUpdate.setBounds(390, 537, 89, 23);
+		contentPane.add(btnUpdate);
 		
-		rdbtnYes = new JRadioButton("YES");
-		rdbtnYes.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		rdbtnYes.setBackground(Color.WHITE);
-		rdbtnYes.setBounds(133, 43, 66, 23);
-		contentPane.add(rdbtnYes);
+		lblOsType = new JLabel("OS Type");
+		lblOsType.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblOsType.setBounds(34, 30, 66, 24);
+		contentPane.add(lblOsType);
 		
-		rdbtnNo = new JRadioButton("NO");
-		rdbtnNo.setBackground(Color.WHITE);
-		rdbtnNo.setBounds(220, 43, 66, 23);
-		contentPane.add(rdbtnNo);
+		comboBoxOSType = new JComboBox();
+		comboBoxOSType.setModel(new DefaultComboBoxModel(OSType.values()));
+		comboBoxOSType.setBackground(Color.WHITE);
+		comboBoxOSType.setBounds(134, 34, 100, 20);
+		comboBoxOSType.addActionListener(this);
+		contentPane.add(comboBoxOSType);
 		
-		radioButton.add(rdbtnYes);
-		radioButton.add(rdbtnNo);
 		
-		lblMemory = new JLabel("Memory");
-		lblMemory.setBackground(Color.WHITE);
-		lblMemory.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblMemory.setBounds(33, 95, 66, 24);
-		contentPane.add(lblMemory);
+		lblBrand = new JLabel("Brand");
+		lblBrand.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblBrand.setBounds(34, 79, 66, 24);
+		contentPane.add(lblBrand);
 		
-		textFieldMemory = new JTextField();
-		textFieldMemory.setFont(new Font("Tahoma", Font.PLAIN, 12));
-		textFieldMemory.setBounds(133, 99, 59, 20);
-		contentPane.add(textFieldMemory);
-		textFieldMemory.setColumns(10);
-		textFieldMemory.addKeyListener(this);
+		lblModel = new JLabel("Model");
+		lblModel.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblModel.setBounds(34, 128, 68, 28);
+		contentPane.add(lblModel);
 		
-		lblGb = new JLabel("GB");
-		lblGb.setFont(new Font("Tahoma", Font.PLAIN, 13));
-		lblGb.setBounds(195, 100, 24, 17);
-		contentPane.add(lblGb);
+		comboBoxBrandType = new JComboBox();
+		comboBoxBrandType.setModel(defaultComboBoxBrand);
+		comboBoxBrandType.setBackground(Color.WHITE);
+		comboBoxBrandType.setBounds(134, 83, 100, 20);
+		comboBoxBrandType.addActionListener(this);
+		contentPane.add(comboBoxBrandType);
+		
+		
+		comboBoxModelType = new JComboBox();
+		comboBoxModelType.setModel(defaultComboBoxModel);
+		comboBoxModelType.setBackground(Color.WHITE);
+		comboBoxModelType.setBounds(134, 134, 100, 20);
+		comboBoxModelType.addActionListener(this);
+		contentPane.add(comboBoxModelType);
+	
+		
+		lbl4g = new JLabel("4G Enabled");
+		lbl4g.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lbl4g.setBounds(34, 180, 79, 24);
+		contentPane.add(lbl4g);
+		
+		
+		
+		radioButton = new ButtonGroup();
+		radioButtonYes = new JRadioButton("YES");
+		radioButtonYes.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		radioButtonYes.setBackground(Color.WHITE);
+		radioButtonYes.setBounds(134, 183, 66, 23);
+		radioButton.add(radioButtonYes);
+		
+		radioButtonNo = new JRadioButton("NO");
+		radioButtonNo.setBackground(Color.WHITE);
+		radioButtonNo.setBounds(221, 183, 66, 23);
+		radioButton.add(radioButtonNo);
+		contentPane.add(radioButtonNo);
+		contentPane.add(radioButtonYes);
+		
+		textFieldGpu = new JTextField();
+		textFieldGpu.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		textFieldGpu.setColumns(10);
+		textFieldGpu.setBounds(134, 477, 271, 20);
+		contentPane.add(textFieldGpu);
+		
+		
+		lblGpu = new JLabel("GPU");
+		lblGpu.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblGpu.setBounds(34, 473, 66, 24);
+		contentPane.add(lblGpu);
+		
+		textFieldCpu = new JTextField();
+		textFieldCpu.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		textFieldCpu.setColumns(10);
+		textFieldCpu.setBounds(134, 421, 271, 20);
+		contentPane.add(textFieldCpu);
+		
+		
+		lblCpu = new JLabel("CPU");
+		lblCpu.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblCpu.setBounds(34, 417, 66, 24);
+		contentPane.add(lblCpu);
+		
+		textFieldRam = new JTextField();
+		textFieldRam.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		textFieldRam.setColumns(10);
+		textFieldRam.setBounds(134, 356, 32, 20);
+		contentPane.add(textFieldRam);
+		
+		
+		lblRam = new JLabel("RAM");
+		lblRam.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblRam.setBounds(34, 352, 66, 24);
+		contentPane.add(lblRam);
+		
+		lblGb_1 = new JLabel("GB");
+		lblGb_1.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		lblGb_1.setBounds(174, 359, 24, 17);
+		contentPane.add(lblGb_1);
+		
+		lblMah = new JLabel("mAh");
+		lblMah.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		lblMah.setBounds(210, 299, 46, 14);
+		contentPane.add(lblMah);
 		
 		lblBattery = new JLabel("Battery");
 		lblBattery.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblBattery.setBounds(33, 152, 66, 24);
+		lblBattery.setBounds(34, 292, 66, 24);
 		contentPane.add(lblBattery);
 		
 		textFieldBattery = new JTextField();
 		textFieldBattery.setFont(new Font("Tahoma", Font.PLAIN, 12));
-		textFieldBattery.setBounds(133, 156, 72, 20);
-		contentPane.add(textFieldBattery);
 		textFieldBattery.setColumns(10);
-		textFieldBattery.addKeyListener(this);
+		textFieldBattery.setBounds(134, 296, 72, 20);
+		contentPane.add(textFieldBattery);
 		
-		lblMah = new JLabel("mAh");
-		lblMah.setFont(new Font("Tahoma", Font.PLAIN, 13));
-		lblMah.setBounds(209, 159, 46, 14);
-		contentPane.add(lblMah);
 		
-		lblRam = new JLabel("RAM");
-		lblRam.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblRam.setBounds(33, 212, 66, 24);
-		contentPane.add(lblRam);
+		lblGb = new JLabel("GB");
+		lblGb.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		lblGb.setBounds(196, 240, 24, 17);
+		contentPane.add(lblGb);
 		
-		textFieldRam = new JTextField();
-		textFieldRam.setFont(new Font("Tahoma", Font.PLAIN, 12));
-		textFieldRam.setBounds(133, 216, 32, 20);
-		contentPane.add(textFieldRam);
-		textFieldRam.setColumns(10);
-		textFieldRam.addKeyListener(this);
+		textFieldMemory = new JTextField();
+		textFieldMemory.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		textFieldMemory.setColumns(10);
+		textFieldMemory.setBounds(134, 239, 59, 20);
+		contentPane.add(textFieldMemory);
 		
-		lblGb_1 = new JLabel("GB");
-		lblGb_1.setFont(new Font("Tahoma", Font.PLAIN, 13));
-		lblGb_1.setBounds(173, 219, 24, 17);
-		contentPane.add(lblGb_1);
 		
-		lblCpu = new JLabel("CPU");
-		lblCpu.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblCpu.setBounds(33, 277, 66, 24);
-		contentPane.add(lblCpu);
+		lblMemory = new JLabel("Memory");
+		lblMemory.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblMemory.setBackground(Color.WHITE);
+		lblMemory.setBounds(34, 235, 66, 24);
+		contentPane.add(lblMemory);
 		
-		textFieldCpu = new JTextField();
-		textFieldCpu.setFont(new Font("Tahoma", Font.PLAIN, 12));
-		textFieldCpu.setBounds(133, 281, 271, 20);
-		contentPane.add(textFieldCpu);
-		textFieldCpu.setColumns(10);
 		
-		lblGpu = new JLabel("GPU");
-		lblGpu.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblGpu.setBounds(33, 333, 66, 24);
-		contentPane.add(lblGpu);
+		populate();
 		
-		textFieldGpu = new JTextField();
-		textFieldGpu.setFont(new Font("Tahoma", Font.PLAIN, 12));
-		textFieldGpu.setBounds(133, 337, 271, 20);
-		contentPane.add(textFieldGpu);
-		textFieldGpu.setColumns(10);
 		
-		btnUpdate = new JButton("UPDATE");
-		btnUpdate.addActionListener(this);
-		btnUpdate.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		btnUpdate.setBounds(337, 404, 89, 23);
-		contentPane.add(btnUpdate);
+		
+	}
+	
+	
+	public void populate()
+	{
+		comboBoxOSType.setSelectedItem(phone.getOperatingSystem());
+		
+		comboBoxBrandType.setSelectedItem(phone.getFeatures().getBrand());
+		
+		if(phone.getFeatures().getModelApple()!=null)
+		{
+			comboBoxModelType.setSelectedItem(phone.getFeatures().getModelApple());	
+		}
+		if(phone.getFeatures().getModelHtc()!=null)
+		{
+			comboBoxModelType.setSelectedItem(phone.getFeatures().getModelHtc());
+		}
+		
+		if(phone.getFeatures().getModelLenovo()!=null)
+		{
+			comboBoxModelType.setSelectedItem(phone.getFeatures().getModelLenovo());
+		}
+		if(phone.getFeatures().getModelLg()!=null)
+		{
+			comboBoxModelType.setSelectedItem(phone.getFeatures().getModelLg());
+		}
+		if(phone.getFeatures().getModelOneplus()!=null)
+		{
+			comboBoxModelType.setSelectedItem(phone.getFeatures().getModelOneplus());
+		}
+		if(phone.getFeatures().getModelSamsung()!=null)
+		{
+			comboBoxModelType.setSelectedItem(phone.getFeatures().getModelSamsung());
+		}
+		
+		
+		
+		if(phone.getFeatures().isFourG())
+		{
+			radioButtonYes.setSelected(true);
+		}
+		else
+		{
+			radioButtonNo.setSelected(true);
+		}
+		
+		textFieldGpu.setText(phone.getFeatures().getGpu());
+		
+		textFieldCpu.setText(phone.getFeatures().getCpu());
+		
+		textFieldRam.setText(Integer.toString(phone.getFeatures().getRam()));
+		
+		textFieldBattery.setText(Integer.toString(phone.getFeatures().getBattery()));
+		
+		textFieldMemory.setText(Integer.toString(phone.getFeatures().getInternalMemory()));
 	}
 	
 	
 	public void keyTyped(KeyEvent e) {
 		
-		if(e.getSource()==textFieldRam||e.getSource()==textFieldMemory||e.getSource()==textFieldBattery){
+		if(e.getSource()==textFieldRam||e.getSource()==textFieldBattery||e.getSource()==textFieldBattery){
 			try{
 				Integer.parseInt(Character.toString(e.getKeyChar()));
 				
@@ -204,9 +326,169 @@ public class UpdateScreen extends JFrame implements KeyListener, ActionListener 
 	
 	public void actionPerformed(ActionEvent e) {
 		
+		if(e.getSource()==comboBoxOSType)
+		{
+			if(comboBoxOSType.getSelectedItem()==OSType.ANDROID)
+			{
+				defaultComboBoxBrand.addElement(BrandType.values()[0]);
+				for(int i=2;i<=6;i++)
+				{
+					defaultComboBoxBrand.addElement(BrandType.values()[i]);
+				}
+			}
+			else if(comboBoxOSType.getSelectedItem()==OSType.IOS)
+			{
+				defaultComboBoxBrand.addElement(BrandType.values()[0]);
+				defaultComboBoxBrand.addElement(BrandType.values()[1]);
+				
+			}
+		}
+		
+		
+		if(e.getSource()==comboBoxBrandType)
+		{
+			if(comboBoxBrandType.getSelectedItem()==BrandType.APPLE)
+			{
+				for(int i=0;i<=4;i++)
+				{
+					defaultComboBoxModel.addElement(phone.getFeatures().getModelApple().values()[i]);
+					
+			
+				}
+			}
+			else if(comboBoxBrandType.getSelectedItem()==BrandType.SAMSUNG)
+			{
+				for(int i=0;i<=5;i++)
+				{
+					defaultComboBoxModel.addElement(phone.getFeatures().getModelSamsung().values()[i]);
+					
+			
+				}
+			}
+			else if(comboBoxBrandType.getSelectedItem()==BrandType.HTC)
+			{
+				for(int i=0;i<=3;i++)
+				{
+					defaultComboBoxModel.addElement(phone.getFeatures().getModelHtc().values()[i]);
+					
+			
+				}
+			}
+			else if(comboBoxBrandType.getSelectedItem()==BrandType.LG)
+			{
+				for(int i=0;i<=4;i++)
+				{
+					defaultComboBoxModel.addElement(phone.getFeatures().getModelLg().values()[i]);
+					
+			
+				}
+			}
+			else if(comboBoxBrandType.getSelectedItem()==BrandType.LENOVO)
+			{
+				for(int i=0;i<=4;i++)
+				{
+					defaultComboBoxModel.addElement(phone.getFeatures().getModelLenovo().values()[i]);
+					
+			
+				}
+			}
+			else if(comboBoxBrandType.getSelectedItem()==BrandType.ONEPLUS)
+			{
+				for(int i=0;i<=4;i++)
+				{
+					defaultComboBoxModel.addElement(phone.getFeatures().getModelOneplus().values()[i]);
+					
+			
+				}
+			}
+			
+		}
+		
+		
 		if(e.getSource()==btnUpdate)
 		{
-						
+			int id=phone.getId();
+			
+			
+			boolean is4G = false;
+			int internalMemory = 0;
+			int ram=0;
+			int battery=0;
+			String cpu=null;
+			String gpu=null;
+			
+			Phone phone = new Phone();
+			
+			Features feature = new Features();
+			
+			phone.setOperatingSystem((OSType)comboBoxOSType.getSelectedItem());
+			feature.setBrand((BrandType)comboBoxBrandType.getSelectedItem());
+			if(comboBoxBrandType.getSelectedItem()==BrandType.APPLE)
+			{
+				feature.setModelApple((ModelApple) comboBoxModelType.getSelectedItem());
+			}
+			if(comboBoxBrandType.getSelectedItem()==BrandType.SAMSUNG)
+			{	
+				feature.setModelSamsung((ModelSamsung) comboBoxModelType.getSelectedItem());
+			}	
+			if(comboBoxBrandType.getSelectedItem()==BrandType.HTC)	
+			{	
+				feature.setModelHtc((ModelHtc) comboBoxModelType.getSelectedItem());
+			}	
+			if(comboBoxBrandType.getSelectedItem()==BrandType.LG)	
+			{
+				feature.setModelLg((ModelLg) comboBoxModelType.getSelectedItem());
+			}	
+			if(comboBoxBrandType.getSelectedItem()==BrandType.LENOVO)	
+			{
+				feature.setModelLenovo((ModelLenovo) comboBoxModelType.getSelectedItem());
+			}	
+			if(comboBoxBrandType.getSelectedItem()==BrandType.ONEPLUS)	
+			{
+				feature.setModelOneplus((ModelOneplus) comboBoxModelType.getSelectedItem());
+			}	
+			
+			if(radioButtonYes.isSelected())
+			{
+				is4G = true;
+			}else if(radioButtonNo.isSelected()){
+				is4G = false;
+			}
+			
+			if(!textFieldMemory.getText().equals(""))
+			{
+				internalMemory = Integer.parseInt(textFieldMemory.getText());	
+			}
+			if(!textFieldBattery.getText().equals(""))
+			{
+				battery = Integer.parseInt(textFieldBattery.getText());	
+			}
+			if(!textFieldRam.getText().equals(""))
+			{
+				ram = Integer.parseInt(textFieldRam.getText());	
+			}
+			if(!textFieldCpu.getText().equals(""))
+			{
+				cpu = textFieldCpu.getText();
+			}
+			if(!textFieldGpu.getText().equals(""))
+			{
+				gpu = textFieldGpu.getText();	
+			}
+			feature.setInternalMemory(internalMemory);
+			feature.setBattery(battery);
+			feature.setRam(ram);
+			feature.setFourG(is4G);
+			feature.setCpu(cpu);
+			feature.setGpu(gpu);
+			phone.setFeatures(feature);
+			
+			PhoneData.updateList(this.phone,phone);	
+			
+			
+			ViewScreen.refresh();
+			
+			
 		}
 		
 		

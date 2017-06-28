@@ -381,81 +381,11 @@ public class AddScreen implements ActionListener,KeyListener{
 			
 		}
 		
-		boolean is4G = false;
-		int internalMemory = 0;
-		int ram=0;
-		int battery=0;
-		String cpu=null;
-		String gpu=null;
+		
 		
 		if(e.getSource()==btnSave)
 		{
-			Phone phone = new Phone();
-			
-			Features feature = new Features();
-			
-			phone.setOperatingSystem((OSType)comboBoxOSType.getSelectedItem());
-			feature.setBrand((BrandType)comboBoxBrandType.getSelectedItem());
-			if(comboBoxBrandType.getSelectedItem()==BrandType.APPLE)
-			{
-				feature.setModelApple((ModelApple) comboBoxModel.getSelectedItem());
-			}
-			if(comboBoxBrandType.getSelectedItem()==BrandType.SAMSUNG)
-			{	
-				feature.setModelSamsung((ModelSamsung) comboBoxModel.getSelectedItem());
-			}	
-			if(comboBoxBrandType.getSelectedItem()==BrandType.HTC)	
-			{	
-				feature.setModelHtc((ModelHtc) comboBoxModel.getSelectedItem());
-			}	
-			if(comboBoxBrandType.getSelectedItem()==BrandType.LG)	
-			{
-				feature.setModelLg((ModelLg) comboBoxModel.getSelectedItem());
-			}	
-			if(comboBoxBrandType.getSelectedItem()==BrandType.LENOVO)	
-			{
-				feature.setModelLenovo((ModelLenovo) comboBoxModel.getSelectedItem());
-			}	
-			if(comboBoxBrandType.getSelectedItem()==BrandType.ONEPLUS)	
-			{
-				feature.setModelOneplus((ModelOneplus) comboBoxModel.getSelectedItem());
-			}	
-			
-			if(rdbtnYes.isSelected())
-			{
-				is4G = true;
-			}else if(rdbtnNo.isSelected()){
-				is4G = false;
-			}
-			
-			if(!textFieldMemory.getText().equals(""))
-			{
-				internalMemory = Integer.parseInt(textFieldMemory.getText());	
-			}
-			if(!textFieldBattery.getText().equals(""))
-			{
-				battery = Integer.parseInt(textFieldBattery.getText());	
-			}
-			if(!textFieldRam.getText().equals(""))
-			{
-				ram = Integer.parseInt(textFieldRam.getText());	
-			}
-			if(!textFieldCpu.getText().equals(""))
-			{
-				cpu = textFieldCpu.getText();
-			}
-			if(!textFieldGpu.getText().equals(""))
-			{
-				gpu = textFieldGpu.getText();	
-			}
-			feature.setInternalMemory(internalMemory);
-			feature.setBattery(battery);
-			feature.setRam(ram);
-			feature.setFourG(is4G);
-			feature.setCpu(cpu);
-			feature.setGpu(gpu);
-			phone.setFeatures(feature);
-			PhoneData.addToList(phone);
+			populateList();
 			JOptionPane.showMessageDialog(null, "All Fields Saved Successfully");
 			reset();
 		}
@@ -473,6 +403,84 @@ public class AddScreen implements ActionListener,KeyListener{
 		}
 		
 	}
+	
+	public void populateList()
+	{
+		boolean is4G = false;
+		int internalMemory = 0;
+		int ram=0;
+		int battery=0;
+		String cpu=null;
+		String gpu=null;
+		
+		Phone phone = new Phone();
+		
+		Features feature = new Features();
+		
+		phone.setOperatingSystem((OSType)comboBoxOSType.getSelectedItem());
+		feature.setBrand((BrandType)comboBoxBrandType.getSelectedItem());
+		if(comboBoxBrandType.getSelectedItem()==BrandType.APPLE)
+		{
+			feature.setModelApple((ModelApple) comboBoxModel.getSelectedItem());
+		}
+		if(comboBoxBrandType.getSelectedItem()==BrandType.SAMSUNG)
+		{	
+			feature.setModelSamsung((ModelSamsung) comboBoxModel.getSelectedItem());
+		}	
+		if(comboBoxBrandType.getSelectedItem()==BrandType.HTC)	
+		{	
+			feature.setModelHtc((ModelHtc) comboBoxModel.getSelectedItem());
+		}	
+		if(comboBoxBrandType.getSelectedItem()==BrandType.LG)	
+		{
+			feature.setModelLg((ModelLg) comboBoxModel.getSelectedItem());
+		}	
+		if(comboBoxBrandType.getSelectedItem()==BrandType.LENOVO)	
+		{
+			feature.setModelLenovo((ModelLenovo) comboBoxModel.getSelectedItem());
+		}	
+		if(comboBoxBrandType.getSelectedItem()==BrandType.ONEPLUS)	
+		{
+			feature.setModelOneplus((ModelOneplus) comboBoxModel.getSelectedItem());
+		}	
+		
+		if(rdbtnYes.isSelected())
+		{
+			is4G = true;
+		}else if(rdbtnNo.isSelected()){
+			is4G = false;
+		}
+		
+		if(!textFieldMemory.getText().equals(""))
+		{
+			internalMemory = Integer.parseInt(textFieldMemory.getText());	
+		}
+		if(!textFieldBattery.getText().equals(""))
+		{
+			battery = Integer.parseInt(textFieldBattery.getText());	
+		}
+		if(!textFieldRam.getText().equals(""))
+		{
+			ram = Integer.parseInt(textFieldRam.getText());	
+		}
+		if(!textFieldCpu.getText().equals(""))
+		{
+			cpu = textFieldCpu.getText();
+		}
+		if(!textFieldGpu.getText().equals(""))
+		{
+			gpu = textFieldGpu.getText();	
+		}
+		feature.setInternalMemory(internalMemory);
+		feature.setBattery(battery);
+		feature.setRam(ram);
+		feature.setFourG(is4G);
+		feature.setCpu(cpu);
+		feature.setGpu(gpu);
+		phone.setFeatures(feature);
+		PhoneData.addToList(phone);
+	}
+	
 
 	public void keyTyped(KeyEvent e) {
 		
