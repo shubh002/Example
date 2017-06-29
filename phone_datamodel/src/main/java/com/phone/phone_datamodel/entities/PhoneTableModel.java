@@ -3,10 +3,11 @@ package com.phone.phone_datamodel.entities;
 import java.util.List;
 
 import javax.swing.table.AbstractTableModel;
+import javax.swing.table.DefaultTableModel;
 
 import com.phone.phone_datamodel.enums.BrandType;
 
-public class PhoneTableModel extends AbstractTableModel{
+public class PhoneTableModel{
 
 	private List<Phone> data;
 	
@@ -88,13 +89,6 @@ public class PhoneTableModel extends AbstractTableModel{
 		}
 		
 	}
-
-
-	@Override
-	public String getColumnName(int column) {
-		return columnNames[column];
-	}
-
 
 	public Object[][] getTableData() {
 		return tableData;

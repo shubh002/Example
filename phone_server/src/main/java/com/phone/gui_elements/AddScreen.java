@@ -66,7 +66,7 @@ public class AddScreen implements ActionListener,KeyListener{
 	private JSeparator separator_1;
 	private JButton btnExistingPhones;
 	private JButton btnClear;
-	
+	static int count = 0;
 	
 	public void reset()
 	{
@@ -314,6 +314,7 @@ public class AddScreen implements ActionListener,KeyListener{
 		{
 			if(comboBoxOSType.getSelectedItem()==OSType.ANDROID)
 			{
+				defaultComboBoxBrand.removeAllElements();
 				defaultComboBoxBrand.addElement(BrandType.values()[0]);
 				for(int i=2;i<=6;i++)
 				{
@@ -322,6 +323,7 @@ public class AddScreen implements ActionListener,KeyListener{
 			}
 			else if(comboBoxOSType.getSelectedItem()==OSType.IOS)
 			{
+				defaultComboBoxBrand.removeAllElements();
 				defaultComboBoxBrand.addElement(BrandType.values()[0]);
 				defaultComboBoxBrand.addElement(BrandType.values()[1]);
 				
@@ -332,6 +334,7 @@ public class AddScreen implements ActionListener,KeyListener{
 		{
 			if(comboBoxBrandType.getSelectedItem()==BrandType.APPLE)
 			{
+				defaultComboBoxModel.removeAllElements();
 				for(int i=0;i<=4;i++)
 				{
 					defaultComboBoxModel.addElement(ModelApple.values()[i]);
@@ -340,6 +343,7 @@ public class AddScreen implements ActionListener,KeyListener{
 			}
 			else if(comboBoxBrandType.getSelectedItem()==BrandType.SAMSUNG)
 			{
+				defaultComboBoxModel.removeAllElements();
 				for(int i=0;i<=5;i++)
 				{
 					defaultComboBoxModel.addElement(ModelSamsung.values()[i]);
@@ -348,6 +352,7 @@ public class AddScreen implements ActionListener,KeyListener{
 			}
 			else if(comboBoxBrandType.getSelectedItem()==BrandType.HTC)
 			{
+				defaultComboBoxModel.removeAllElements();
 				for(int i=0;i<=3;i++)
 				{
 					defaultComboBoxModel.addElement(ModelHtc.values()[i]);
@@ -356,6 +361,7 @@ public class AddScreen implements ActionListener,KeyListener{
 			}
 			else if(comboBoxBrandType.getSelectedItem()==BrandType.LG)
 			{
+				defaultComboBoxModel.removeAllElements();
 				for(int i=0;i<=4;i++)
 				{
 					defaultComboBoxModel.addElement(ModelLg.values()[i]);
@@ -364,6 +370,7 @@ public class AddScreen implements ActionListener,KeyListener{
 			}
 			else if(comboBoxBrandType.getSelectedItem()==BrandType.LENOVO)
 			{
+				defaultComboBoxModel.removeAllElements();
 				for(int i=0;i<=4;i++)
 				{
 					defaultComboBoxModel.addElement(ModelLenovo.values()[i]);
@@ -372,6 +379,7 @@ public class AddScreen implements ActionListener,KeyListener{
 			}
 			else if(comboBoxBrandType.getSelectedItem()==BrandType.ONEPLUS)
 			{
+				defaultComboBoxModel.removeAllElements();
 				for(int i=0;i<=4;i++)
 				{
 					defaultComboBoxModel.addElement(ModelOneplus.values()[i]);
@@ -385,17 +393,24 @@ public class AddScreen implements ActionListener,KeyListener{
 		
 		if(e.getSource()==btnSave)
 		{
+			
 			populateList();
 			JOptionPane.showMessageDialog(null, "All Fields Saved Successfully");
 			reset();
+			if(count!=0)
+			{
+				GuiScreensFactory.closeViewScreen();
+				GuiScreensFactory.openViewScreen();
+			}
+			count++;
 		}
 		
 		if(e.getSource()==btnExistingPhones)
 		{
 			
-			ViewScreen viewScreen = new ViewScreen(); 
-			viewScreen.setVisible(true);
-			
+			GuiScreensFactory.openViewScreen();	
+			GuiScreensFactory.closeViewScreen();
+			GuiScreensFactory.openViewScreen();
 		}
 		if(e.getSource()==btnClear)
 		{

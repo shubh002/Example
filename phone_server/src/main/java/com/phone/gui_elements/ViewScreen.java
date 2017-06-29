@@ -34,25 +34,9 @@ public class ViewScreen extends JFrame implements ActionListener{
 	private JPopupMenu popupMenu;
 	private JMenuItem update;
 	private JMenuItem delete;
-	/**
-	 * Launch the application.
-	 */
-	public static void refresh() {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-						ViewScreen frame = new ViewScreen();
-						frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	/**
-	 * Create the frame.
-	 */
+	
+	
+	
 	public ViewScreen() {
 		setType(Type.UTILITY);
 		setTitle("VIEW SCREEN");
@@ -133,14 +117,12 @@ public class ViewScreen extends JFrame implements ActionListener{
 			}
 			else
 			{
-				this.dispose();
-				refresh();
 				int id = (Integer) table.getModel().getValueAt(selectedRow, 0);
 				System.out.println(id);
 				PhoneData.removeFromList(PhoneData.findById(id));
+				GuiScreensFactory.closeViewScreen();
+				GuiScreensFactory.openViewScreen();
 			}
-			
-			System.out.println("Delete pressed");
 		}	
 		
 	}

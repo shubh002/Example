@@ -66,25 +66,7 @@ public class UpdateScreen extends JFrame implements KeyListener, ActionListener 
 	private DefaultComboBoxModel defaultComboBoxBrand = new DefaultComboBoxModel();
 	private DefaultComboBoxModel defaultComboBoxModel= new DefaultComboBoxModel();
 	
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					UpdateScreen frame = new UpdateScreen(null);
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	/**
-	 * Create the frame.
-	 */
+	
 	public UpdateScreen(Phone phone) {
 		this.phone = phone;
 		setType(Type.UTILITY);
@@ -190,8 +172,8 @@ public class UpdateScreen extends JFrame implements KeyListener, ActionListener 
 		textFieldRam.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		textFieldRam.setColumns(10);
 		textFieldRam.setBounds(134, 356, 32, 20);
+		textFieldRam.addKeyListener(this);
 		contentPane.add(textFieldRam);
-		
 		
 		lblRam = new JLabel("RAM");
 		lblRam.setFont(new Font("Tahoma", Font.PLAIN, 14));
@@ -217,6 +199,7 @@ public class UpdateScreen extends JFrame implements KeyListener, ActionListener 
 		textFieldBattery.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		textFieldBattery.setColumns(10);
 		textFieldBattery.setBounds(134, 296, 72, 20);
+		textFieldBattery.addKeyListener(this);
 		contentPane.add(textFieldBattery);
 		
 		
@@ -229,6 +212,7 @@ public class UpdateScreen extends JFrame implements KeyListener, ActionListener 
 		textFieldMemory.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		textFieldMemory.setColumns(10);
 		textFieldMemory.setBounds(134, 239, 59, 20);
+		textFieldMemory.addKeyListener(this);
 		contentPane.add(textFieldMemory);
 		
 		
@@ -303,7 +287,7 @@ public class UpdateScreen extends JFrame implements KeyListener, ActionListener 
 	
 	public void keyTyped(KeyEvent e) {
 		
-		if(e.getSource()==textFieldRam||e.getSource()==textFieldBattery||e.getSource()==textFieldBattery){
+		if(e.getSource()==textFieldRam||e.getSource()==textFieldBattery||e.getSource()==textFieldMemory){
 			try{
 				Integer.parseInt(Character.toString(e.getKeyChar()));
 				
@@ -315,12 +299,12 @@ public class UpdateScreen extends JFrame implements KeyListener, ActionListener 
 	}
 
 	public void keyPressed(KeyEvent e) {
-		// TODO Auto-generated method stub
+		
 		
 	}
 
 	public void keyReleased(KeyEvent e) {
-		// TODO Auto-generated method stub
+		
 		
 	}
 	
@@ -330,7 +314,7 @@ public class UpdateScreen extends JFrame implements KeyListener, ActionListener 
 		{
 			if(comboBoxOSType.getSelectedItem()==OSType.ANDROID)
 			{
-				defaultComboBoxBrand.addElement(BrandType.values()[0]);
+				defaultComboBoxBrand.removeAllElements();
 				for(int i=2;i<=6;i++)
 				{
 					defaultComboBoxBrand.addElement(BrandType.values()[i]);
@@ -338,7 +322,7 @@ public class UpdateScreen extends JFrame implements KeyListener, ActionListener 
 			}
 			else if(comboBoxOSType.getSelectedItem()==OSType.IOS)
 			{
-				defaultComboBoxBrand.addElement(BrandType.values()[0]);
+				defaultComboBoxBrand.removeAllElements();
 				defaultComboBoxBrand.addElement(BrandType.values()[1]);
 				
 			}
@@ -347,6 +331,7 @@ public class UpdateScreen extends JFrame implements KeyListener, ActionListener 
 		
 		if(e.getSource()==comboBoxBrandType)
 		{
+			defaultComboBoxModel.removeAllElements();
 			if(comboBoxBrandType.getSelectedItem()==BrandType.APPLE)
 			{
 				for(int i=0;i<=4;i++)
@@ -358,6 +343,7 @@ public class UpdateScreen extends JFrame implements KeyListener, ActionListener 
 			}
 			else if(comboBoxBrandType.getSelectedItem()==BrandType.SAMSUNG)
 			{
+				defaultComboBoxModel.removeAllElements();
 				for(int i=0;i<=5;i++)
 				{
 					defaultComboBoxModel.addElement(phone.getFeatures().getModelSamsung().values()[i]);
@@ -367,6 +353,7 @@ public class UpdateScreen extends JFrame implements KeyListener, ActionListener 
 			}
 			else if(comboBoxBrandType.getSelectedItem()==BrandType.HTC)
 			{
+				defaultComboBoxModel.removeAllElements();
 				for(int i=0;i<=3;i++)
 				{
 					defaultComboBoxModel.addElement(phone.getFeatures().getModelHtc().values()[i]);
@@ -376,6 +363,7 @@ public class UpdateScreen extends JFrame implements KeyListener, ActionListener 
 			}
 			else if(comboBoxBrandType.getSelectedItem()==BrandType.LG)
 			{
+				defaultComboBoxModel.removeAllElements();
 				for(int i=0;i<=4;i++)
 				{
 					defaultComboBoxModel.addElement(phone.getFeatures().getModelLg().values()[i]);
@@ -385,6 +373,7 @@ public class UpdateScreen extends JFrame implements KeyListener, ActionListener 
 			}
 			else if(comboBoxBrandType.getSelectedItem()==BrandType.LENOVO)
 			{
+				defaultComboBoxModel.removeAllElements();
 				for(int i=0;i<=4;i++)
 				{
 					defaultComboBoxModel.addElement(phone.getFeatures().getModelLenovo().values()[i]);
@@ -394,6 +383,7 @@ public class UpdateScreen extends JFrame implements KeyListener, ActionListener 
 			}
 			else if(comboBoxBrandType.getSelectedItem()==BrandType.ONEPLUS)
 			{
+				defaultComboBoxModel.removeAllElements();
 				for(int i=0;i<=4;i++)
 				{
 					defaultComboBoxModel.addElement(phone.getFeatures().getModelOneplus().values()[i]);
@@ -407,8 +397,8 @@ public class UpdateScreen extends JFrame implements KeyListener, ActionListener 
 		
 		if(e.getSource()==btnUpdate)
 		{
-			int id=phone.getId();
-			
+			this.repaint();
+			this.validate();
 			
 			boolean is4G = false;
 			int internalMemory = 0;
@@ -483,12 +473,11 @@ public class UpdateScreen extends JFrame implements KeyListener, ActionListener 
 			feature.setGpu(gpu);
 			phone.setFeatures(feature);
 			
-			PhoneData.updateList(this.phone,phone);	
+			PhoneData.updateList(this.phone,phone);
 			
-			
-			ViewScreen.refresh();
-			
-			
+			GuiScreensFactory.closeViewScreen();
+			GuiScreensFactory.openViewScreen();
+					
 		}
 		
 		
