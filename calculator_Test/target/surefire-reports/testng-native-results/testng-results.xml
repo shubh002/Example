@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" total="6" passed="6">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Command line suite" duration-ms="307" started-at="2017-06-15T12:15:13Z" finished-at="2017-06-15T12:15:13Z">
+    <groups>
+    </groups>
+    <test name="Command line test" duration-ms="307" started-at="2017-06-15T12:15:13Z" finished-at="2017-06-15T12:15:13Z">
+      <class name="com.iontrading.calculator.calculator.ClientInterfaceTest">
+        <test-method status="PASS" signature="setup()[pri:0, instance:com.iontrading.calculator.calculator.ClientInterfaceTest@4662de7b]" test-instance-name="" name="setup" is-config="true" duration-ms="10" started-at="2017-06-15T17:45:13Z" finished-at="2017-06-15T17:45:13Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method status="PASS" signature="testCalculateAdd()[pri:0, instance:com.iontrading.calculator.calculator.ClientInterfaceTest@4662de7b]" test-instance-name="" name="testCalculateAdd" duration-ms="0" started-at="2017-06-15T17:45:13Z" finished-at="2017-06-15T17:45:13Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testCalculateAdd -->
+        <test-method status="PASS" signature="testCalculateSub()[pri:0, instance:com.iontrading.calculator.calculator.ClientInterfaceTest@4662de7b]" test-instance-name="" name="testCalculateSub" duration-ms="0" started-at="2017-06-15T17:45:13Z" finished-at="2017-06-15T17:45:13Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testCalculateSub -->
+        <test-method status="PASS" signature="testFindMax()[pri:0, instance:com.iontrading.calculator.calculator.ClientInterfaceTest@4662de7b]" test-instance-name="" name="testFindMax" duration-ms="0" started-at="2017-06-15T17:45:13Z" finished-at="2017-06-15T17:45:13Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testFindMax -->
+      </class> <!-- com.iontrading.calculator.calculator.ClientInterfaceTest -->
+      <class name="com.iontrading.calculator.calculator.CalculatorTest">
+        <test-method status="PASS" signature="setup()[pri:0, instance:com.iontrading.calculator.calculator.CalculatorTest@2301ba21]" test-instance-name="" name="setup" is-config="true" duration-ms="279" started-at="2017-06-15T17:45:13Z" finished-at="2017-06-15T17:45:13Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method status="PASS" signature="testAdd()[pri:0, instance:com.iontrading.calculator.calculator.CalculatorTest@2301ba21]" test-instance-name="" name="testAdd" duration-ms="10" started-at="2017-06-15T17:45:13Z" finished-at="2017-06-15T17:45:13Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testAdd -->
+        <test-method status="PASS" signature="testSubtractSecondFromFirst()[pri:0, instance:com.iontrading.calculator.calculator.CalculatorTest@2301ba21]" test-instance-name="" name="testSubtractSecondFromFirst" duration-ms="0" started-at="2017-06-15T17:45:13Z" finished-at="2017-06-15T17:45:13Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testSubtractSecondFromFirst -->
+        <test-method status="PASS" signature="testFindMax()[pri:0, instance:com.iontrading.calculator.calculator.CalculatorTest@2301ba21]" test-instance-name="" name="testFindMax" duration-ms="0" started-at="2017-06-15T17:45:13Z" finished-at="2017-06-15T17:45:13Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testFindMax -->
+      </class> <!-- com.iontrading.calculator.calculator.CalculatorTest -->
+    </test> <!-- Command line test -->
+  </suite> <!-- Command line suite -->
+</testng-results>
