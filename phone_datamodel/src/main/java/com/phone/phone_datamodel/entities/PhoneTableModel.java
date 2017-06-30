@@ -1,10 +1,6 @@
 package com.phone.phone_datamodel.entities;
 
 import java.util.List;
-
-import javax.swing.table.AbstractTableModel;
-import javax.swing.table.DefaultTableModel;
-
 import com.phone.phone_datamodel.enums.BrandType;
 
 public class PhoneTableModel{

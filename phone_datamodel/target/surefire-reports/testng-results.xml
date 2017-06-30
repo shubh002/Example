@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" total="1" passed="1">
+  <reporter-output>
+  </reporter-output>
+  <suite name="com.phone.phone_datamodel.entities.PhoneTest" duration-ms="21" started-at="2017-06-30T10:54:45Z" finished-at="2017-06-30T10:54:45Z">
+    <groups>
+    </groups>
+    <test name="Command line test" duration-ms="21" started-at="2017-06-30T10:54:45Z" finished-at="2017-06-30T10:54:45Z">
+      <class name="com.phone.phone_datamodel.entities.PhoneTest">
+        <test-method status="PASS" signature="testBean()[pri:0, instance:com.phone.phone_datamodel.entities.PhoneTest@38ceb62f]" name="testBean" duration-ms="1" started-at="2017-06-30T16:24:45Z" finished-at="2017-06-30T16:24:45Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testBean -->
+      </class> <!-- com.phone.phone_datamodel.entities.PhoneTest -->
+    </test> <!-- Command line test -->
+  </suite> <!-- com.phone.phone_datamodel.entities.PhoneTest -->
+</testng-results>

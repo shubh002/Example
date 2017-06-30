@@ -2,9 +2,14 @@ com\phone\phone_datamodel\enums\ModelSamsung.class
 com\phone\phone_datamodel\enums\ModelHtc.class
 com\phone\phone_datamodel\entities\Features.class
 com\phone\phone_datamodel\enums\BrandType.class
+com\phone\phone_datamodel\entities\TestBean.class
+com\phone\phone_datamodel\entities\IPhone.class
 com\phone\phone_datamodel\enums\OSType.class
-com\phone\phone_datamodel\enums\ModelOp.class
 com\phone\phone_datamodel\enums\ModelApple.class
+com\phone\phone_datamodel\entities\PhoneTableModel$1.class
 com\phone\phone_datamodel\entities\Phone.class
+com\phone\phone_datamodel\enums\ModelOneplus.class
+com\phone\phone_datamodel\entities\PhoneTableModel.class
 com\phone\phone_datamodel\enums\ModelLg.class
 com\phone\phone_datamodel\enums\ModelLenovo.class
+com\phone\phone_datamodel\entities\IFeatures.class

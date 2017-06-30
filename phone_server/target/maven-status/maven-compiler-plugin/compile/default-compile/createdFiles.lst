@@ -1,2 +1,8 @@
-com\phone\phone_server\App.class
-com\phone\phone_server\Abc.class
+com\phone\gui_elements\AddScreen$1.class
+com\phone\gui_elements\AddScreen.class
+com\phone\gui_elements\ViewScreen.class
+com\phone\data\PhoneData.class
+com\phone\phone_server\Display.class
+com\phone\gui_elements\UpdateScreen.class
+com\phone\phone_server\Add.class
+com\phone\gui_elements\GuiScreensFactory.class
